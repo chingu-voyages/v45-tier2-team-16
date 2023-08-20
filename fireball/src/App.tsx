@@ -1,12 +1,25 @@
+import { useEffect, useState } from "react"
+
   
 
 function App() { 
 
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+    const response = await fetch('https://data.nasa.gov/resource/gh4g-9sfh.json')
+    const data = await response.json()
+    setData(data)
+    }
+
+    fetchData()
+  }, [])
+  
+
   return (
     <> 
-      <div className='h-screen w-screen min-h-[600px] grid place-content-center'>
-        <h1 className='text-xl font-bold drop-shadow-md'>Hello World👋</h1>
-      </div>
+    
     </>
   )
 }
