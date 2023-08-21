@@ -7,7 +7,7 @@ import meteoriteData from './data.json'
 
 function App() { 
 
-  const [data, setData] = useState<Meteorite[]>(meteoriteData)
+  const [data, setData] = useState(meteoriteData as Meteorite[])
   console.log(data)
 
 
