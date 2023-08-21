@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react"
 import SearchForm from "./components/search form/SearchForm"
 
-import strikeData from './data.json'
 import Search from "./components/search/Search"
-
+import meteoriteData from './data.json'
   
 
 function App() { 
 
-  const [data, setData] = useState(strikeData)
+  const [data, setData] = useState<Meteorite[]>(meteoriteData)
   console.log(data)
 
 
   return (
     <> 
-      {/* <SearchForm data={data} setData={setData} /> */}
       <Search data={data} setData={setData} />
     </>
   )

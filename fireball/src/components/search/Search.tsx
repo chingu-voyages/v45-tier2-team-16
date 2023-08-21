@@ -3,7 +3,7 @@ import Name from './Name'
 import Year from './Year';
 import Composition from './Composition';
 import Mass from './Mass';
-import strikeData from '../../data.json'
+import meteoriteData from '../../data.json'
 
 interface Props {
     data: Meteorite[],
@@ -21,7 +21,7 @@ const Search = ({data, setData} : Props) => {
     const [mass, setMass] = React.useState<number[]>([0, 200]);
 
     const handleClick = () => {
-        setData(strikeData as Meteorite[])
+        setData(meteoriteData as Meteorite[])
         setName(null)
         setYear(null)
         setComposition(null)
