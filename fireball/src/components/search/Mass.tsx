@@ -2,8 +2,8 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 
 interface Props {
-  mass: number[] | null,
-  setMass:React.Dispatch<React.SetStateAction<number[]|null>>,
+  mass: number[] ,
+  setMass:React.Dispatch<React.SetStateAction<number[]>>,
 }
 
 

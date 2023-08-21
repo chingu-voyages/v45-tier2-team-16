@@ -19,7 +19,6 @@ export default function Name({composition, setComposition, data}: Props) {
     <div>
    
       <Autocomplete
-        isOptionEqualToValue={(option, value) => option.composition === value.composition}
         value={composition}
         onChange={(_event: any, newValue: string | null) => {
             setComposition(newValue);

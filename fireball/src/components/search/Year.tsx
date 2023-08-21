@@ -22,7 +22,6 @@ export default function Name({year, setYear, data}: Props) {
     <div>
    
       <Autocomplete
-        isOptionEqualToValue={(option, value) => option.year === value.year}
         value={year}
         onChange={(_event: any, newValue: string | null) => {
           setYear(newValue);
