@@ -2,10 +2,14 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
+interface Props {
+  composition: string | null,
+  setComposition:React.Dispatch<React.SetStateAction<string|null>>,
+  data: Meteorite[],
+}
 
-export default function Name({composition, setComposition, data}) {
+export default function Name({composition, setComposition, data}: Props) {
 
-  console.log(composition)
   const [inputValue, setInputValue] = React.useState('');
 
   const compositionArr = data.map(meteorite => meteorite.recclass)
@@ -17,11 +21,11 @@ export default function Name({composition, setComposition, data}) {
       <Autocomplete
         isOptionEqualToValue={(option, value) => option.composition === value.composition}
         value={composition}
-        onChange={(event: any, newValue: string | null) => {
+        onChange={(_event: any, newValue: string | null) => {
             setComposition(newValue);
         }}
         inputValue={inputValue}
-        onInputChange={(event, newInputValue) => {
+        onInputChange={(_event, newInputValue) => {
           setInputValue(newInputValue);
         }}
         options={options}

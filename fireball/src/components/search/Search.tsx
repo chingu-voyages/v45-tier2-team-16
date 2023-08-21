@@ -5,7 +5,12 @@ import Composition from './Composition';
 import Mass from './Mass';
 import strikeData from '../../data.json'
 
-const Search = ({data, setData}) => {
+interface Props {
+    data: Meteorite[],
+    setData: React.Dispatch<React.SetStateAction<Meteorite[]>>
+}
+
+const Search = ({data, setData} : Props) => {
  
     const [name, setName] = React.useState<string | null>(null);
 
@@ -13,19 +18,19 @@ const Search = ({data, setData}) => {
 
     const [composition, setComposition] = React.useState<string | null>(null);
 
-    const [mass, setMass] = React.useState<number[]>([0, 0]);
+    const [mass, setMass] = React.useState<number[]>([0, 200]);
 
     const handleClick = () => {
-        setData(strikeData)
+        setData(strikeData as Meteorite[])
         setName(null)
         setYear(null)
         setComposition(null)
         setMass([0, 0])
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        const filteredData = data.filter(meteorite => meteorite.name === name || meteorite.recclass === composition || meteorite.year?.split('-')[0] === year ||  (meteorite.mass > mass[0] && meteorite.mass < mass[1]))
+        const filteredData = data.filter(meteorite => meteorite.name === name || meteorite.recclass === composition || meteorite.year?.split('-')[0] === year ||  (meteorite.mass > mass[0].toString() && meteorite.mass < mass[1].toString()))
         setData(filteredData)
     }
 

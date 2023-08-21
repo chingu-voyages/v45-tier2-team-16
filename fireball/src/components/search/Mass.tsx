@@ -1,11 +1,15 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 
+interface Props {
+  mass: number[] | null,
+  setMass:React.Dispatch<React.SetStateAction<number[]|null>>,
+}
 
-export default function Mass({mass, setMass}) {
+
+export default function Mass({mass, setMass}: Props) {
  
-  const handleChange = (event: Event, newValue: number | number[]) => {
+  const handleChange = (_event: Event, newValue: number | number[]) => {
     setMass(newValue as number[]);
   };
 

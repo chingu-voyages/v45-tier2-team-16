@@ -6,7 +6,6 @@ interface Props {
   name: string | null,
   setName:React.Dispatch<React.SetStateAction<string|null>>,
   data: Meteorite[],
-  
 }
 
 
@@ -20,7 +19,7 @@ export default function Name({name, setName, data}: Props) {
     <div>
    
       <Autocomplete
-      isOptionEqualToValue={(option, value) => option.name === value.name}
+        isOptionEqualToValue={(option, value) => option.name === value.name}
         value={name}
         onChange={(_event: any, newValue: string | null) => {
           setName(newValue);
