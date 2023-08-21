@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react"
-import SearchForm from "./components/search form/SearchForm"
 
+import { useState } from "react"
 import Search from "./components/search/Search"
 import meteoriteData from './data.json'
   
