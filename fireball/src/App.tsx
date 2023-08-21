@@ -1,25 +1,21 @@
 import { useEffect, useState } from "react"
+import SearchForm from "./components/search form/SearchForm"
+
+import strikeData from './data.json'
+import Search from "./components/search/Search"
 
   
 
 function App() { 
 
-  const [data, setData] = useState([])
+  const [data, setData] = useState(strikeData)
+  console.log(data)
 
-  useEffect(() => {
-    const fetchData = async () => {
-    const response = await fetch('https://data.nasa.gov/resource/gh4g-9sfh.json')
-    const data = await response.json()
-    setData(data)
-    }
-
-    fetchData()
-  }, [])
-  
 
   return (
     <> 
-    
+      {/* <SearchForm data={data} setData={setData} /> */}
+      <Search data={data} setData={setData} />
     </>
   )
 }
