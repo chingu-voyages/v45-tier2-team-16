@@ -1,12 +1,18 @@
+
+import { useState } from "react"
+import Search from "./components/search/Search"
+import meteoriteData from './data.json'
   
 
 function App() { 
 
+  const [data, setData] = useState(meteoriteData as Meteorite[])
+  console.log(data)
+
+
   return (
     <> 
-      <div className='h-screen w-screen min-h-[600px] grid place-content-center'>
-        <h1 className='text-xl font-bold drop-shadow-md'>Hello World👋</h1>
-      </div>
+      <Search data={data} setData={setData} />
     </>
   )
 }
