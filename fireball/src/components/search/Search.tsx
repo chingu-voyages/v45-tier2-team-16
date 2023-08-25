@@ -18,7 +18,7 @@ const Search = ({data, setData} : Props) => {
 
     const [composition, setComposition] = React.useState<string | null>(null);
 
-    const [mass, setMass] = React.useState<number[]>([0, 200]);
+    const [mass, setMass] = React.useState<number[]>([0, 0]);
 
     const handleClick = () => {
         setData(meteoriteData as Meteorite[])
