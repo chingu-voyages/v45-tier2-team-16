@@ -2,7 +2,7 @@
 import { useState } from "react"
 import Search from "./components/search/Search"
 import meteoriteData from './data.json'
-  
+import Table from './components/Table'
 
 function App() { 
 
@@ -13,6 +13,7 @@ function App() {
   return (
     <> 
       <Search data={data} setData={setData} />
+      <Table data={data} />
     </>
   )
 }
