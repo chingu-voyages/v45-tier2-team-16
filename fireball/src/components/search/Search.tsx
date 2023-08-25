@@ -46,8 +46,8 @@ const Search = ({data, setData} : Props) => {
         <Mass mass={mass} setMass={setMass}/>
 
         <div className='flex gap-5'>
-            <button type='button' onClick={handleClick}>Clear</button>
-            <button type='submit'>Search</button> 
+            <button type='button' onClick={handleClick} className='py-2 px-4 rounded-full bg-blue-600 text-slate-100 hover:bg-blue-100 hover:text-blue-900'>Clear</button>
+            <button type='submit' className='py-2 px-3 rounded-full bg-blue-600 text-slate-100 hover:bg-blue-100 hover:text-blue-900'>Search</button> 
         </div>
         
     </form >
