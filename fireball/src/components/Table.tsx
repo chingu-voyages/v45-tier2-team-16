@@ -34,7 +34,7 @@ const Table = () => {
   );
 }
 
-interface Meteorite {
+interface Meteorite { 
   id: string;
   name: string;
   year: number | undefined;
