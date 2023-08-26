@@ -1,6 +1,6 @@
-import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import * as React from 'react'; 
+import { Autocomplete, TextField} from '@mui/material';
+import { Meteorite } from '../../interfaces';
 
 interface Props {
   name: string | null,
@@ -20,7 +20,7 @@ export default function Name({name, setName, data}: Props) {
    
       <Autocomplete
         value={name}
-        onChange={(_event: any, newValue: string | null) => {
+        onChange={(_event: React.ChangeEvent, newValue: string | null) => {
           setName(newValue);
         }}
         inputValue={inputValue}
