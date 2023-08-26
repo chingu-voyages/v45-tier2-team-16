@@ -1,8 +1,11 @@
 // import * as React from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import meteoriteData from '../data.json';
 
 // console.log(meteoriteData.slice(0,10))
+
+interface Props {
+  data: Meteorite[]
+}
 
 const columns: GridColDef[] = [
   { field: 'name', headerName: 'Name', width: 150 },
@@ -13,28 +16,29 @@ const columns: GridColDef[] = [
 ];
 
 
-const data: Meteorite[] = []
+const Table = ({data}: Props) => {
 
-meteoriteData.forEach(col => {
-  data.push({
-    id: col.id,
-    name: col.name,
-    year: col.year ? parseInt(col.year) : undefined,
-    mass: col.mass ? parseInt(col.mass) : undefined,
-    lon: col.geolocation?.longitude ? parseInt(col.geolocation.longitude) : undefined,
-    lat: col.geolocation?.latitude ? parseInt(col.geolocation.latitude) : undefined
+  const rows: Meteorite[] = []
+
+  data.forEach(col => {
+    rows.push({
+      id: col.id,
+      name: col.name,
+      year: col.year ? parseInt(col.year) : undefined,
+      mass: col.mass ? parseInt(col.mass) : undefined,
+      lon: col.geolocation?.longitude ? parseInt(col.geolocation.longitude) : undefined,
+      lat: col.geolocation?.latitude ? parseInt(col.geolocation.latitude) : undefined
+    })
   })
-})
 
-const Table = () => {
   return (
     <div style={{ height: 300, width: '100%' }}>
-      <DataGrid rows={data} columns={columns} />
+      <DataGrid rows={rows} columns={columns} />
     </div>
   );
 }
 
-interface Meteorite {
+interface Meteorite { 
   id: string;
   name: string;
   year: number | undefined;
