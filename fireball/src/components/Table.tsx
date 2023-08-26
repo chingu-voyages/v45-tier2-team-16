@@ -9,12 +9,12 @@ interface Props {
 }
 
 const columns: GridColDef[] = [
-  { field: 'name', headerName: 'Name', minWidth: 150}, 
-  { field: 'year', headerName: 'Year', minWidth: 150},
-  { field: 'mass', headerName: 'Mass', minWidth: 150},
-  { field: 'reclong', headerName: 'Longitude', minWidth: 150},
-  { field: 'reclat', headerName: 'Latitude', minWidth: 150}, 
-  { field: 'country', headerName: 'Country', minWidth: 150},
+  { field: 'name', headerName: 'Name', minWidth: 100, flex: 1}, 
+  { field: 'year', headerName: 'Year', minWidth: 150, flex: 1},
+  { field: 'mass', headerName: 'Mass', minWidth: 100, flex: 1},
+  { field: 'reclong', headerName: 'Longitude', minWidth: 150, flex: 1},
+  { field: 'reclat', headerName: 'Latitude', minWidth: 150, flex: 1}, 
+  { field: 'country', headerName: 'Country', minWidth: 150, flex: 1},
 ];
 
 
@@ -23,18 +23,19 @@ const Table = ({data}: Props) => {
   const [loading, setLoading] = useState(true);
   const [rows, setRows] = useState<rowTypes[]>([]) 
 
-  const getCountryName = useCallback(async (lat: string, long: string) => {
+  const getCountryName = async (lat: string, long: string) => {
     const reverse = await fetch(`https://api.radar.io/v1/geocode/reverse?coordinates=${lat},${long}`, {
       method: 'GET', 
       headers: {
         "Authorization": "prj_test_pk_6fc2d214cd3c695938a5710decec25a2d23f5674"
-      }
+      },
+      cache: 'force-cache'
     }).then(async data => {
       const res = await data.json();
-      return res.addresses.pop().country
+      return res?.addresses?.pop()?.country
     }).catch(err => console.log(err)); 
     return reverse
-  }, []) 
+  } 
 
   useEffect(() => {
     setLoading(true); 
